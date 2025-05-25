@@ -1,0 +1,27 @@
+{
+  "name": "anglotech-backend",
+  "version": "0.1.0",
+  "scripts": {
+    "seed": "ts-node --transpile-only seed.ts",
+    "start": "ts-node-dev ./src/main.ts",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/main.ts",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:generate": "npm run typeorm -- migration:generate -d src/data-source.ts src/migrations/Init",
+    "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/typeorm": "^9.0.0",
+    "mysql2": "^2.3.3",
+    "typeorm": "^0.3.24"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^4.9.5"
+  }
+}
