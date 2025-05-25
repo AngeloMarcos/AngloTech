@@ -5,6 +5,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strict": true,
+    "types": ["node"],
     "outDir": "dist"
   },
   "include": ["src/**/*"]

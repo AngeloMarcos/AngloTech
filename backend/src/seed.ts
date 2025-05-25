@@ -1,13 +1,13 @@
 import 'reflect-metadata';
 import { AppDataSource } from './data-source';
-import { User } from '../backend/src/entities/user.entity';
+import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
 
 async function seed() {
   const ds   = await AppDataSource.initialize();
   const repo = ds.getRepository(User);
 
-  // Hash de ‘admin’
+  // 1) Gero um hash para “admin”
   const adminPassword = await bcrypt.hash('admin', 10);
 
   const demoUsers = [
@@ -16,7 +16,9 @@ async function seed() {
       email:    'admin@anglotech.com',
       password: adminPassword,
     },
-    // … outros usuários …
+    { name: 'Alice Dev',  email: 'alice@anglotech.com', password: await bcrypt.hash('senha123', 10) },
+    { name: 'Bob Coder',  email: 'bob@anglotech.com',   password: await bcrypt.hash('senha123', 10) },
+    { name: 'Carol Ops',  email: 'carol@anglotech.com', password: await bcrypt.hash('senha123', 10) },
   ];
 
   for (const u of demoUsers) {

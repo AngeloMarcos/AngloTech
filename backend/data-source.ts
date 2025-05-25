@@ -1,17 +1,16 @@
-// backend/src/data-source.ts
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-// Antes: import { User } from './entities/user.entity';
-import { User } from './entities/User';
+import { User } from '../backend/src/entities/user.entity';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
-  host: process.env.DB_HOST || 'localhost',
-  port: parseInt(process.env.DB_PORT || '3306', 10),
-  username: process.env.DB_USER || 'root',
-  password: process.env.DB_PASS || 'root',
-  database: process.env.DB_NAME || 'plataforma',
+  host:     process.env.DB_HOST   || 'localhost',
+  port:     parseInt(process.env.DB_PORT || '3306', 10),
+  username: process.env.DB_USER   || 'root',
+  password: process.env.DB_PASS   || 'root',
+  database: process.env.DB_NAME   || 'plataforma',
   entities: [User],
   migrations: ['src/migrations/*.ts'],
   synchronize: false,
+  logging: false,
 });
