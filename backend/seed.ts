@@ -10,6 +10,7 @@ async function seed() {
   // Hash de ‘admin’
   const adminPassword = await bcrypt.hash('admin', 10);
 
+  
   const demoUsers = [
     {
       name:     'Administrador',

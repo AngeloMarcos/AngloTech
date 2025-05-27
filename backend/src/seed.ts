@@ -1,24 +1,18 @@
 import 'reflect-metadata';
 import { AppDataSource } from './data-source';
-import { User } from './entities/user.entity';
-import * as bcrypt from 'bcrypt';
+import { User }          from './entities/user.entity';
+import * as bcrypt       from 'bcrypt';
 
 async function seed() {
   const ds   = await AppDataSource.initialize();
   const repo = ds.getRepository(User);
 
-  // 1) Gero um hash para “admin”
-  const adminPassword = await bcrypt.hash('admin', 10);
-
+  const adminHash = await bcrypt.hash('admin', 10);
   const demoUsers = [
-    {
-      name:     'Administrador',
-      email:    'admin@anglotech.com',
-      password: adminPassword,
-    },
-    { name: 'Alice Dev',  email: 'alice@anglotech.com', password: await bcrypt.hash('senha123', 10) },
-    { name: 'Bob Coder',  email: 'bob@anglotech.com',   password: await bcrypt.hash('senha123', 10) },
-    { name: 'Carol Ops',  email: 'carol@anglotech.com', password: await bcrypt.hash('senha123', 10) },
+    { name: 'Administrador', email: 'admin@anglotech.com', password: adminHash },
+    { name: 'Alice Dev',     email: 'alice@anglotech.com',  password: await bcrypt.hash('senha123', 10) },
+    { name: 'Bob Coder',     email: 'bob@anglotech.com',    password: await bcrypt.hash('senha123', 10) },
+    { name: 'Carol Ops',     email: 'carol@anglotech.com',  password: await bcrypt.hash('senha123', 10) },
   ];
 
   for (const u of demoUsers) {
@@ -30,7 +24,7 @@ async function seed() {
   }
 
   await ds.destroy();
-  console.log('Seed completado com sucesso.');
+  console.log('Seed finalizado com sucesso.');
 }
 
 seed().catch(err => {
