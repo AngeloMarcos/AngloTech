@@ -5,9 +5,11 @@ type SummaryCardProps = {
 
 export default function SummaryCard({ title, value }: SummaryCardProps) {
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow">
-      <h3 className="text-gray-400 text-sm">{title}</h3>
-      <p className="text-2xl font-semibold text-white">{value}</p>
+    <div className="bg-dark-card dark:bg-light-card border border-dark-border dark:border-light-border p-4 rounded-lg shadow">
+      <h3 className="text-dark-subtext dark:text-light-subtext text-sm">{title}</h3>
+      <p className="mt-2 text-2xl font-semibold text-dark-text dark:text-light-text">
+        {value}
+      </p>
     </div>
   );
 }
