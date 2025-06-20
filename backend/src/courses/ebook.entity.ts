@@ -4,14 +4,14 @@ import { Course } from './course.entity';
 @Entity()
 export class Ebook {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  title: string;
+  title!: string;
 
   @Column()
-  fileUrl: string;
+  fileUrl!: string;
 
   @ManyToOne(() => Course, (course) => course.ebooks)
-  course: Course;
+  course!: Course;
 }

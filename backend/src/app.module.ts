@@ -40,6 +40,7 @@ import { Ebook }    from './courses/ebook.entity';
     AuthModule,
     UsersModule,
     CoursesModule,
+    TypeOrmModule.forFeature([User]),
   ],
   controllers: [AppController],
   providers: [AppService],
