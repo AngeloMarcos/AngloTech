@@ -14,23 +14,23 @@ import { Ebook }  from './ebook.entity';
 @Unique(['slug'])
 export class Course {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  title: string;
+  title!: string;
 
   @Column()
-  slug: string;
+  slug!: string;
 
   @Column({ nullable: true, type: 'text' })
   description?: string;
 
   @ManyToOne(() => User, (user) => user.courses)
-  instructor: User;
+  instructor!: User;
 
   @OneToMany(() => Lesson, (lesson) => lesson.course, { cascade: true })
-  lessons: Lesson[];
+  lessons!: Lesson[];
 
   @OneToMany(() => Ebook, (ebook) => ebook.course, { cascade: true })
-  ebooks: Ebook[];
+  ebooks!: Ebook[];
 }
