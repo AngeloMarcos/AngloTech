@@ -11,17 +11,16 @@ export default NextAuth({
         password: { label: "Senha", type: "password" },
       },
       async authorize(credentials) {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: credentials!.email,
-              password: credentials!.password,
-            }),
-          },
-        );
+        const baseUrl =
+          process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+        const res = await fetch(`${baseUrl}/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: credentials!.email,
+            password: credentials!.password,
+          }),
+        });
         const data = await res.json();
         if (res.ok && data.access_token) {
           // NextAuth espera pelo menos { name, email, id }
