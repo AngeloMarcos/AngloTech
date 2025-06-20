@@ -24,23 +24,54 @@ export default function Dashboard() {
     { title: 'Próxima aula',         value: 'React Avançado - 25/05/2025' },
   ];
   const progressData = [
-    { name: 'Semana 1', value: 10 },
-    { name: 'Semana 2', value: 25 },
-    { name: 'Semana 3', value: 40 },
-    { name: 'Semana 4', value: 45 },
+    { curso: 'Semana 1', percentual: 10 },
+    { curso: 'Semana 2', percentual: 25 },
+    { curso: 'Semana 3', percentual: 40 },
+    { curso: 'Semana 4', percentual: 45 },
   ];
   const activities = [
-    { id: 1, title: 'Quiz de TypeScript', status: 'pendente' },
-    { id: 2, title: 'Exercício de Hooks',  status: 'concluído' },
-    { id: 3, title: 'Projeto Final',       status: 'em andamento' },
+    {
+      id:       1,
+      title:    'Quiz de TypeScript',
+      course:   'TypeScript Básico',
+      deadline: '2025-05-10',
+    },
+    {
+      id:       2,
+      title:    'Exercício de Hooks',
+      course:   'React Intermediário',
+      deadline: '2025-05-15',
+    },
+    {
+      id:       3,
+      title:    'Projeto Final',
+      course:   'React Avançado',
+      deadline: '2025-05-30',
+    },
   ];
   const ebooks = [
-    { id: 1, title: 'Guia React Avançado',   url: '/ebooks/react-avancado.pdf' },
-    { id: 2, title: 'TypeScript Essencial',  url: '/ebooks/typescript.pdf' },
+    {
+      id:       1,
+      title:    'Guia React Avançado',
+      coverUrl: '/ebooks/react-avancado.png',
+    },
+    {
+      id:       2,
+      title:    'TypeScript Essencial',
+      coverUrl: '/ebooks/typescript.png',
+    },
   ];
   const notifications = [
-    { id: 1, message: 'Nova aula disponível: Next.js Auth', date: '20/05/2025' },
-    { id: 2, message: 'Quiz corrigido com sucesso!',           date: '18/05/2025' },
+    {
+      id:        1,
+      message:   'Nova aula disponível: Next.js Auth',
+      timestamp: '2025-05-20',
+    },
+    {
+      id:        2,
+      message:   'Quiz corrigido com sucesso!',
+      timestamp: '2025-05-18',
+    },
   ];
 
   return (
