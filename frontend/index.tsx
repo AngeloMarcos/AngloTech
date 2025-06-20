@@ -43,6 +43,12 @@ export default function Home() {
           >
             Usuários
           </Link>
+          <Link
+            href="/reports"
+            className="px-6 py-2 bg-primary rounded hover:bg-primary/90 transition inline-block"
+          >
+            Relatórios
+          </Link>
         </div>
       </main>
     </>
