@@ -4,7 +4,8 @@
   "scripts": {
     "seed": "ts-node-dev --respawn --transpile-only src/seed.ts",
     "start": "ts-node-dev src/main.ts",
-    "dev": "ts-node-dev --respawn --transpile-only src/main.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
