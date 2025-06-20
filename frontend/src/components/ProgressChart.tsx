@@ -1,5 +1,5 @@
 type ProgressChartProps = {
-  data: Array<{ curso: string; percentual: number }>;
+  data: Array<{ name: string; value: number }>;
 };
 
 export default function ProgressChart({ data }: ProgressChartProps) {

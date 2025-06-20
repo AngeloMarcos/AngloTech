@@ -1,9 +1,7 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard }          from '../auth/jwt-auth.guard';
-import { CoursesService }        from './courses.service';
+import { Controller, Get, Param } from "@nestjs/common";
+import { CoursesService } from "./courses.service";
 
-@Controller('courses')
-@UseGuards(JwtAuthGuard)
+@Controller("courses")
 export class CoursesController {
   constructor(private svc: CoursesService) {}
 
@@ -12,8 +10,8 @@ export class CoursesController {
     return this.svc.findAll();
   }
 
-  @Get(':slug')
-  getBySlug(@Param('slug') slug: string) {
+  @Get(":slug")
+  getBySlug(@Param("slug") slug: string) {
     return this.svc.findOneBySlug(slug);
   }
 }
