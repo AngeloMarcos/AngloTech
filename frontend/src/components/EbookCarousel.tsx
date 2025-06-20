@@ -1,7 +1,7 @@
 type Ebook = {
   id: number;
   title: string;
-  coverUrl: string;
+  url: string;
 };
 
 type EbookCarouselProps = {
@@ -18,7 +18,11 @@ export default function EbookCarousel({ ebooks }: EbookCarouselProps) {
       <div className="flex space-x-4 overflow-auto">
         {ebooks.map((eb) => (
           <div key={eb.id} className="min-w-[120px]">
-            <img src={eb.coverUrl} alt={eb.title} className="w-full h-32 object-cover rounded" />
+            <img
+              src={eb.url}
+              alt={eb.title}
+              className="w-full h-32 object-cover rounded"
+            />
             <p className="text-white mt-2 text-center text-sm">{eb.title}</p>
           </div>
         ))}

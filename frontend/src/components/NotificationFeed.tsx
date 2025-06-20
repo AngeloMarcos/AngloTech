@@ -1,14 +1,16 @@
 type Notification = {
   id: number;
   message: string;
-  timestamp: string;
+  date: string;
 };
 
 type NotificationFeedProps = {
   notifications: Notification[];
 };
 
-export default function NotificationFeed({ notifications }: NotificationFeedProps) {
+export default function NotificationFeed({
+  notifications,
+}: NotificationFeedProps) {
   if (notifications.length === 0) {
     return <p className="text-gray-400">Sem notificações recentes.</p>;
   }
@@ -18,7 +20,7 @@ export default function NotificationFeed({ notifications }: NotificationFeedProp
       <ul className="space-y-2">
         {notifications.map((n) => (
           <li key={n.id} className="text-gray-300 text-sm">
-            {n.message} – <span className="text-gray-500">{n.timestamp}</span>
+            {n.message} – <span className="text-gray-500">{n.date}</span>
           </li>
         ))}
       </ul>

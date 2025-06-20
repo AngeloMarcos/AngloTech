@@ -5,32 +5,32 @@ import {
   ManyToOne,
   OneToMany,
   Unique,
-} from 'typeorm';
-import { User }   from '../entities/user.entity';
-import { Lesson } from './lesson.entity';
-import { Ebook }  from './ebook.entity';
+} from "typeorm";
+import { User } from "../entities/user.entity";
+import { Lesson } from "./lesson.entity";
+import { Ebook } from "./ebook.entity";
 
 @Entity()
-@Unique(['slug'])
+@Unique(["slug"])
 export class Course {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  title: string;
+  title!: string;
 
   @Column()
-  slug: string;
+  slug!: string;
 
-  @Column({ nullable: true, type: 'text' })
+  @Column({ nullable: true, type: "text" })
   description?: string;
 
   @ManyToOne(() => User, (user) => user.courses)
-  instructor: User;
+  instructor!: User;
 
   @OneToMany(() => Lesson, (lesson) => lesson.course, { cascade: true })
-  lessons: Lesson[];
+  lessons!: Lesson[];
 
   @OneToMany(() => Ebook, (ebook) => ebook.course, { cascade: true })
-  ebooks: Ebook[];
+  ebooks!: Ebook[];
 }

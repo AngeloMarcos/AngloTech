@@ -1,8 +1,9 @@
 // backend/src/entities/user.entity.ts
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Course } from "../courses/course.entity";
 
-@Entity('users')
+@Entity("users")
 export class User {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -15,4 +16,7 @@ export class User {
 
   @Column({ nullable: true })
   name?: string;
+
+  @OneToMany(() => Course, (course) => course.instructor)
+  courses?: Course[];
 }

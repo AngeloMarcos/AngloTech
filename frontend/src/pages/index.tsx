@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import logo from '../assets/logo.png'
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import logo from "../assets/logo.png";
 
 export default function Home() {
   return (
@@ -19,20 +19,32 @@ export default function Home() {
           Sua plataforma de cursos tecnológicos
         </p>
         <div className="mt-8 space-x-4">
-          <Link href="/login" className="px-6 py-2 bg-primary rounded hover:bg-primary/90 transition">
+          <Link
+            href="/login"
+            className="px-6 py-2 bg-primary rounded hover:bg-primary/90 transition"
+          >
             Login
           </Link>
-          <Link href="/register" className="px-6 py-2 bg-secondary rounded hover:bg-secondary/90 transition">
+          <Link
+            href="/register"
+            className="px-6 py-2 bg-secondary rounded hover:bg-secondary/90 transition"
+          >
             Registrar
           </Link>
-          <Link href="/dashboard" className="px-6 py-2 bg-primary rounded hover:bg-primary/90 transition">
+          <Link
+            href="/dashboard"
+            className="px-6 py-2 bg-primary rounded hover:bg-primary/90 transition"
+          >
             Dashboard
           </Link>
-          <Link href="/users" className="px-6 py-2 bg-secondary rounded hover:bg-secondary/90 transition">
+          <Link
+            href="/users"
+            className="px-6 py-2 bg-secondary rounded hover:bg-secondary/90 transition"
+          >
             Usuários
           </Link>
         </div>
       </main>
     </>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-export default function DashboardHeader() {
+export default function DashboardHeader({ userEmail }: { userEmail: string }) {
   return (
     <div className="flex items-center justify-between mb-6">
-      <h2 className="text-2xl font-bold text-white">Olá, Usuário!</h2>
+      <h2 className="text-2xl font-bold text-white">Olá, {userEmail}!</h2>
       <p className="text-gray-400">Bem-vindo de volta à sua área</p>
     </div>
   );

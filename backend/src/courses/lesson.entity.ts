@@ -1,20 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Course } from './course.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Course } from "./course.entity";
 
 @Entity()
 export class Lesson {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  title: string;
+  title!: string;
 
   @Column()
-  videoUrl: string;
+  videoUrl!: string;
 
   @Column()
-  "order": number;
+  "order"!: number;
 
   @ManyToOne(() => Course, (course) => course.lessons)
-  course: Course;
+  course!: Course;
 }
