@@ -11,7 +11,7 @@ Este repositório hospeda o backend (NestJS) e o frontend (Next.js) da plataform
 
 1. Clone o repositório e acesse a pasta raiz.
 2. Copie `backend/.env.example` para `backend/.env` e ajuste as credenciais do banco.
-3. Edite `frontend/env.local` se precisar apontar para outra URL do backend.
+3. Edite `frontend/env.local` se precisar apontar para outra URL do backend. Por padrão, o frontend espera o backend em `http://localhost:3001`.
 
 ## Instalação
 
