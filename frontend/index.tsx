@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../public/logo.png";
+import logo from "./src/assets/logo.png";
 
 export default function Home() {
   return (
