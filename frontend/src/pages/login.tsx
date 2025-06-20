@@ -1,30 +1,30 @@
 // frontend/src/pages/login.tsx
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function LoginPage() {
-  const [email, setEmail]         = useState('');
-  const [password, setPassword]   = useState('');
-  const [error, setError]         = useState('');
-  const router                    = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // chame o provider 'credentials'
-    const res = await signIn('credentials', {
+    const res = await signIn("credentials", {
       redirect: false,
       email,
       password,
     });
 
     if (res?.error) {
-      setError('Credenciais inválidas');
+      setError("Credenciais inválidas");
     } else {
       // sucesso, vá para o dashboard
-      router.push('/dashboard');
+      router.push("/dashboard");
     }
   };
 
@@ -32,7 +32,10 @@ export default function LoginPage() {
     <>
       <Header />
       <main className="flex items-center justify-center min-h-screen bg-gray-900">
-        <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded shadow">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-gray-800 p-6 rounded shadow"
+        >
           <h1 className="text-2xl text-white mb-4">Entrar</h1>
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <input
@@ -56,6 +59,13 @@ export default function LoginPage() {
             className="w-full py-2 bg-primary rounded text-white hover:bg-primary/90"
           >
             Entrar
+          </button>
+          <button
+            type="button"
+            className="w-full mt-2 py-2 bg-gray-700 rounded text-white hover:bg-gray-600"
+            onClick={() => router.push("/dashboard")}
+          >
+            Seguir sem senha
           </button>
         </form>
       </main>

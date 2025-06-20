@@ -1,10 +1,8 @@
 // backend/src/users/users.controller.ts
-import { Controller, Get, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard }               from '../auth/jwt-auth.guard';
-import { UsersService }               from './users.service';
+import { Controller, Get } from "@nestjs/common";
+import { UsersService } from "./users.service";
 
-@Controller('users')
-@UseGuards(JwtAuthGuard)
+@Controller("users")
 export class UsersController {
   constructor(private svc: UsersService) {}
 
