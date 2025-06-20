@@ -20,6 +20,8 @@ npm install --prefix backend
 npm install --prefix frontend
 ```
 
+Nao execute `npm install` na raiz; o arquivo `package.json` principal nao possui dependencias.
+
 ## Executando em desenvolvimento
 
 Abra dois terminais:
