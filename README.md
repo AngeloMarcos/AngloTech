@@ -55,6 +55,23 @@ Todas utilizam a senha `admin`:
 - admin4@anglotech.com
 - admin5@anglotech.com
 
+## Extração e padronização de dados
+
+Use `extracao_real.py` para baixar os CSVs do DATASUS:
+
+```bash
+python extracao_real.py internacoes 2025-06
+```
+
+Os arquivos são gravados em `backend/dados/`. Para padronizar colunas e formatos,
+rode:
+
+```bash
+python padroniza_csv.py
+```
+
+O script salva novos arquivos com prefixo `pb_` no mesmo diretório.
+
 ## Deploy no Vercel
 
 A configuração de monorepo já está pronta no arquivo `vercel.json`. Ao criar um projeto no Vercel, a etapa de build executará:
