@@ -15,7 +15,7 @@ export const AppDataSource = new DataSource(
         database: process.env.DB_NAME || "database.sqlite",
         entities: [User, Course, Lesson, Ebook],
         migrations: ["src/migrations/*.ts"],
-        synchronize: false,
+        synchronize: true,
         logging: false,
       }
     : {
@@ -27,7 +27,7 @@ export const AppDataSource = new DataSource(
         database: process.env.DB_NAME || "plataforma",
         entities: [User, Course, Lesson, Ebook],
         migrations: ["src/migrations/*.ts"],
-        synchronize: false,
+        synchronize: true,
         logging: false,
       },
 );
