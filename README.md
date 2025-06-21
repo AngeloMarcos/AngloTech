@@ -36,6 +36,22 @@ npm run dev --prefix frontend
 
 A aplicação ficará disponível em `http://localhost:3000`.
 
+## Usuários de demonstração
+
+Execute o seed para criar contas administrativas de exemplo:
+
+```bash
+npm run seed --prefix backend
+```
+
+Todas utilizam a senha `admin`:
+
+- admin1@anglotech.com
+- admin2@anglotech.com
+- admin3@anglotech.com
+- admin4@anglotech.com
+- admin5@anglotech.com
+
 ## Deploy no Vercel
 
 A configuração de monorepo já está pronta no arquivo `vercel.json`. Ao criar um projeto no Vercel, a etapa de build executará:

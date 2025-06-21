@@ -1,18 +1,39 @@
-import 'reflect-metadata';
-import { AppDataSource } from './data-source';
-import { User }          from './entities/user.entity';
-import * as bcrypt       from 'bcrypt';
+import "reflect-metadata";
+import { AppDataSource } from "./data-source";
+import { User } from "./entities/user.entity";
+import * as bcrypt from "bcrypt";
 
 async function seed() {
-  const ds   = await AppDataSource.initialize();
+  const ds = await AppDataSource.initialize();
   const repo = ds.getRepository(User);
 
-  const adminHash = await bcrypt.hash('admin', 10);
+  const adminHash = await bcrypt.hash("admin", 10);
   const demoUsers = [
-    { name: 'Administrador', email: 'admin@anglotech.com', password: adminHash },
-    { name: 'Alice Dev',     email: 'alice@anglotech.com',  password: await bcrypt.hash('senha123', 10) },
-    { name: 'Bob Coder',     email: 'bob@anglotech.com',    password: await bcrypt.hash('senha123', 10) },
-    { name: 'Carol Ops',     email: 'carol@anglotech.com',  password: await bcrypt.hash('senha123', 10) },
+    {
+      name: "Administrador 1",
+      email: "admin1@anglotech.com",
+      password: adminHash,
+    },
+    {
+      name: "Administrador 2",
+      email: "admin2@anglotech.com",
+      password: adminHash,
+    },
+    {
+      name: "Administrador 3",
+      email: "admin3@anglotech.com",
+      password: adminHash,
+    },
+    {
+      name: "Administrador 4",
+      email: "admin4@anglotech.com",
+      password: adminHash,
+    },
+    {
+      name: "Administrador 5",
+      email: "admin5@anglotech.com",
+      password: adminHash,
+    },
   ];
 
   for (const u of demoUsers) {
@@ -24,10 +45,10 @@ async function seed() {
   }
 
   await ds.destroy();
-  console.log('Seed finalizado com sucesso.');
+  console.log("Seed finalizado com sucesso.");
 }
 
-seed().catch(err => {
-  console.error('Erro no seed:', err);
+seed().catch((err) => {
+  console.error("Erro no seed:", err);
   process.exit(1);
 });
