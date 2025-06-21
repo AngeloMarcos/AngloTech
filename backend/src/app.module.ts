@@ -20,16 +20,25 @@ import { Ebook } from "./courses/ebook.entity";
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: "mysql",
-      host: process.env.DB_HOST || "localhost",
-      port: parseInt(process.env.DB_PORT || "3306", 10),
-      username: process.env.DB_USER || "root",
-      password: process.env.DB_PASS || "root",
-      database: process.env.DB_NAME || "plataforma",
-      entities: [User, Course, Lesson, Ebook],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(
+      (process.env.DB_TYPE || "mysql") === "sqlite"
+        ? {
+            type: "sqlite",
+            database: process.env.DB_NAME || "database.sqlite",
+            entities: [User, Course, Lesson, Ebook],
+            synchronize: true,
+          }
+        : {
+            type: "mysql",
+            host: process.env.DB_HOST || "localhost",
+            port: parseInt(process.env.DB_PORT || "3306", 10),
+            username: process.env.DB_USER || "root",
+            password: process.env.DB_PASS || "root",
+            database: process.env.DB_NAME || "plataforma",
+            entities: [User, Course, Lesson, Ebook],
+            synchronize: true,
+          },
+    ),
 
     PassportModule,
     JwtModule.register({

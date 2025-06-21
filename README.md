@@ -5,12 +5,12 @@ Este repositório hospeda o backend (NestJS) e o frontend (Next.js) da plataform
 ## Requisitos
 
 - Node.js 18+
-- Banco de dados MySQL (ou MariaDB)
+- Banco de dados MySQL (ou MariaDB) **ou** SQLite
 
 ## Configuração
 
 1. Clone o repositório e acesse a pasta raiz.
-2. Copie `backend/.env.example` para `backend/.env` e ajuste as credenciais do banco.
+2. Copie `backend/.env.example` para `backend/.env` e ajuste as credenciais do banco. Se preferir usar SQLite, defina `DB_TYPE=sqlite`.
 3. Edite `frontend/env.local` se precisar apontar para outra URL do backend. Por padrão, o frontend espera o backend em `http://localhost:3001`.
 
 ## Instalação
