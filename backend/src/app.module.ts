@@ -1,4 +1,5 @@
 // backend/src/app.module.ts
+import "dotenv/config";
 
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
@@ -21,7 +22,7 @@ import { Ebook } from "./courses/ebook.entity";
 @Module({
   imports: [
     TypeOrmModule.forRoot(
-      (process.env.DB_TYPE || "mysql") === "sqlite"
+      (process.env.DB_TYPE || "sqlite") === "sqlite"
         ? {
             type: "sqlite",
             database: process.env.DB_NAME || "database.sqlite",

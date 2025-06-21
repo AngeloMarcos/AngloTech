@@ -1,8 +1,9 @@
+import "dotenv/config";
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { User } from "./entities/user.entity";
 
-const dbType = process.env.DB_TYPE || "mysql";
+const dbType = process.env.DB_TYPE || "sqlite";
 
 export const AppDataSource = new DataSource(
   dbType === "sqlite"
