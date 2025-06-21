@@ -1,0 +1,15 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: backend
+    init: cd backend && npm install
+    command: cd backend && npm run dev
+  - name: frontend
+    init: cd frontend && npm install
+    command: cd frontend && npm run dev
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 3001
+    onOpen: ignore

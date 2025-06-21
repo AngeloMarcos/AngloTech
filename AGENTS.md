@@ -1,17 +1,19 @@
-# Repository Guidelines
+# Regras do Repositório
 
-This repository contains a Next.js frontend and a NestJS backend written in TypeScript.
+Este monorepo contém um frontend em Next.js e um backend em NestJS, ambos em TypeScript.
 
-## Commit messages
-- Prefer concise messages in Portuguese.
+## Mensagens de commit
+- Escreva mensagens curtas em **português**.
 
-## Formatting
-- Use **two spaces** for indentation in TypeScript and JavaScript files.
-- After modifying `.ts`, `.tsx`, `.js`, or `.jsx` files, run:
+## Formatação de código
+- Use **duas espaços** para identação em arquivos TypeScript ou JavaScript.
+- Sempre que alterar arquivos `.ts`, `.tsx`, `.js` ou `.jsx`, execute:
   ```bash
-  npx prettier -w <file>
+  npx prettier -w <arquivo>
   ```
 
-## Testing
-- There are currently no automated tests.
-- Ensure `npm install` completes successfully for both `frontend` and `backend` before committing significant changes.
+## Dependências
+- Antes de enviar mudanças relevantes, confirme que `npm install` roda sem erros nos diretórios `backend` e `frontend`.
+
+## Observações
+- Atualmente não há testes automatizados.
