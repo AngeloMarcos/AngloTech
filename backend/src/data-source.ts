@@ -2,6 +2,9 @@ import "dotenv/config";
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { User } from "./entities/user.entity";
+import { Course } from "./courses/course.entity";
+import { Lesson } from "./courses/lesson.entity";
+import { Ebook } from "./courses/ebook.entity";
 
 const dbType = process.env.DB_TYPE || "sqlite";
 
@@ -10,7 +13,7 @@ export const AppDataSource = new DataSource(
     ? {
         type: "sqlite",
         database: process.env.DB_NAME || "database.sqlite",
-        entities: [User],
+        entities: [User, Course, Lesson, Ebook],
         migrations: ["src/migrations/*.ts"],
         synchronize: false,
         logging: false,
@@ -22,7 +25,7 @@ export const AppDataSource = new DataSource(
         username: process.env.DB_USER || "root",
         password: process.env.DB_PASS || "root",
         database: process.env.DB_NAME || "plataforma",
-        entities: [User],
+        entities: [User, Course, Lesson, Ebook],
         migrations: ["src/migrations/*.ts"],
         synchronize: false,
         logging: false,
