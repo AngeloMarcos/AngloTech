@@ -44,6 +44,9 @@ Execute o seed para criar contas administrativas de exemplo:
 npm run seed --prefix backend
 ```
 
+Se o login ainda mostrar "Credenciais inválidas", certifique-se de que o seed
+foi executado e de que o arquivo `backend/database.sqlite` existe.
+
 Todas utilizam a senha `admin`:
 
 - admin1@anglotech.com

@@ -5,6 +5,7 @@
     "seed": "ts-node-dev --respawn --transpile-only src/seed.ts",
     "start": "ts-node-dev src/main.ts",
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
+    "dev:seed": "npm run seed && npm run dev",
     "build": "tsc"
   },
   "dependencies": {
