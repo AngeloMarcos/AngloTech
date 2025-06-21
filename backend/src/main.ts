@@ -1,5 +1,4 @@
 // backend/src/main.ts
-import "dotenv/config";
 import { NestFactory } from "@nestjs/core"; // <-- faltava
 import { AppModule } from "./app.module";
 

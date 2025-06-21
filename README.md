@@ -5,12 +5,12 @@ Este repositório hospeda o backend (NestJS) e o frontend (Next.js) da plataform
 ## Requisitos
 
 - Node.js 18+
-- Banco de dados MySQL (ou MariaDB) **ou** SQLite
+- Banco de dados MySQL (ou MariaDB)
 
 ## Configuração
 
 1. Clone o repositório e acesse a pasta raiz.
-2. Copie `backend/.env.example` para `backend/.env`. Por padrão usamos SQLite. Se quiser MySQL, defina `DB_TYPE=mysql` e ajuste as credenciais.
+2. Copie `backend/.env.example` para `backend/.env` e ajuste as credenciais do banco.
 3. Edite `frontend/env.local` se precisar apontar para outra URL do backend. Por padrão, o frontend espera o backend em `http://localhost:3001`.
 
 ## Instalação
@@ -35,42 +35,6 @@ npm run dev --prefix frontend
 ```
 
 A aplicação ficará disponível em `http://localhost:3000`.
-
-## Usuários de demonstração
-
-Execute o seed para criar contas administrativas de exemplo:
-
-```bash
-npm run seed --prefix backend
-```
-
-Se o login ainda mostrar "Credenciais inválidas", certifique-se de que o seed
-foi executado e de que o arquivo `backend/database.sqlite` existe.
-
-Todas utilizam a senha `admin`:
-
-- admin1@anglotech.com
-- admin2@anglotech.com
-- admin3@anglotech.com
-- admin4@anglotech.com
-- admin5@anglotech.com
-
-## Extração e padronização de dados
-
-Use `extracao_real.py` para baixar os CSVs do DATASUS:
-
-```bash
-python extracao_real.py internacoes 2025-06
-```
-
-Os arquivos são gravados em `backend/dados/`. Para padronizar colunas e formatos,
-rode:
-
-```bash
-python padroniza_csv.py
-```
-
-O script salva novos arquivos com prefixo `pb_` no mesmo diretório.
 
 ## Deploy no Vercel
 

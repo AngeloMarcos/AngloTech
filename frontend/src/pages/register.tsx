@@ -11,9 +11,6 @@ export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
-  const [gender, setGender] = useState("");
-  const [phone, setPhone] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
@@ -29,14 +26,7 @@ export default function RegisterPage() {
       const res = await fetch(`${apiUrl}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          address,
-          gender,
-          phone,
-        }),
+        body: JSON.stringify({ name, email, password }),
       });
 
       if (!res.ok) {
@@ -49,9 +39,6 @@ export default function RegisterPage() {
       setName("");
       setEmail("");
       setPassword("");
-      setAddress("");
-      setGender("");
-      setPhone("");
     } catch (err) {
       console.error("Error registering:", err);
       setError("Falha na conexão com o servidor");
@@ -134,54 +121,6 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full px-4 py-2 rounded-lg bg-dark-bg dark:bg-light-bg text-dark-text dark:text-light-text placeholder-dark-subtext dark:placeholder-light-subtext focus:outline-none focus:ring-2 focus:ring-primary transition"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="address"
-                className="block text-dark-subtext dark:text-light-subtext mb-1"
-              >
-                Endereço
-              </label>
-              <input
-                id="address"
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg bg-dark-bg dark:bg-light-bg text-dark-text dark:text-light-text placeholder-dark-subtext dark:placeholder-light-subtext focus:outline-none focus:ring-2 focus:ring-primary transition"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="gender"
-                className="block text-dark-subtext dark:text-light-subtext mb-1"
-              >
-                Sexo
-              </label>
-              <input
-                id="gender"
-                type="text"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg bg-dark-bg dark:bg-light-bg text-dark-text dark:text-light-text placeholder-dark-subtext dark:placeholder-light-subtext focus:outline-none focus:ring-2 focus:ring-primary transition"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="phone"
-                className="block text-dark-subtext dark:text-light-subtext mb-1"
-              >
-                Telefone
-              </label>
-              <input
-                id="phone"
-                type="text"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-dark-bg dark:bg-light-bg text-dark-text dark:text-light-text placeholder-dark-subtext dark:placeholder-light-subtext focus:outline-none focus:ring-2 focus:ring-primary transition"
               />
             </div>

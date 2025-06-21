@@ -10,9 +10,6 @@ type User = {
   id: number;
   name: string;
   email: string;
-  address?: string;
-  gender?: string;
-  phone?: string;
 };
 
 export async function getServerSideProps(ctx) {
@@ -21,8 +18,7 @@ export async function getServerSideProps(ctx) {
     return { redirect: { destination: "/login", permanent: false } };
   }
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
-  const res = await fetch(`${apiUrl}/users`, {
+  const res = await fetch("http://localhost:3001/users", {
     headers: { Authorization: `Bearer ${(session as any).accessToken}` },
   });
 
@@ -30,14 +26,14 @@ export async function getServerSideProps(ctx) {
   return { props: { users } };
 }
 
-export default function UsersPage({ users }: { users: User[] }) {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+export default function UsersPage() {
+  // === Exemplo de dados estáticos ===
+  const users: User[] = [
+    { id: 1, name: "Administrador", email: "admin@anglotech.com" },
+    { id: 2, name: "Alice Dev", email: "alice@anglotech.com" },
+    { id: 3, name: "Bob Coder", email: "bob@anglotech.com" },
+  ];
 
-  const handleDelete = async (id: number) => {
-    if (!confirm("Confirmar exclusão?")) return;
-    await fetch(`${apiUrl}/users/${id}`, { method: "DELETE" });
-    location.reload();
-  };
   return (
     <div className="flex min-h-screen bg-dark-bg dark:bg-light-bg text-dark-text dark:text-light-text">
       <Sidebar />
@@ -50,17 +46,9 @@ export default function UsersPage({ users }: { users: User[] }) {
             <title>Usuários — AngloTech</title>
           </Head>
 
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold text-primary">
-              Usuários Cadastrados
-            </h1>
-            <Link
-              href="/users/create"
-              className="bg-secondary text-white px-4 py-2 rounded"
-            >
-              Novo Usuário
-            </Link>
-          </div>
+          <h1 className="text-3xl font-bold mb-6 text-primary">
+            Usuários Cadastrados
+          </h1>
 
           <div className="overflow-x-auto">
             <table className="min-w-full bg-dark-card dark:bg-light-card rounded-lg overflow-hidden">
@@ -75,16 +63,6 @@ export default function UsersPage({ users }: { users: User[] }) {
                   <th className="px-4 py-2 text-left text-dark-subtext dark:text-light-subtext">
                     E-mail
                   </th>
-                  <th className="px-4 py-2 text-left text-dark-subtext dark:text-light-subtext">
-                    Endereço
-                  </th>
-                  <th className="px-4 py-2 text-left text-dark-subtext dark:text-light-subtext">
-                    Sexo
-                  </th>
-                  <th className="px-4 py-2 text-left text-dark-subtext dark:text-light-subtext">
-                    Telefone
-                  </th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -101,29 +79,6 @@ export default function UsersPage({ users }: { users: User[] }) {
                     </td>
                     <td className="px-4 py-3 text-dark-text dark:text-light-text">
                       {u.email}
-                    </td>
-                    <td className="px-4 py-3 text-dark-text dark:text-light-text">
-                      {u.address}
-                    </td>
-                    <td className="px-4 py-3 text-dark-text dark:text-light-text">
-                      {u.gender}
-                    </td>
-                    <td className="px-4 py-3 text-dark-text dark:text-light-text">
-                      {u.phone}
-                    </td>
-                    <td className="px-4 py-3">
-                      <Link
-                        href={`/users/${u.id}/edit`}
-                        className="text-secondary mr-2"
-                      >
-                        Editar
-                      </Link>
-                      <button
-                        onClick={() => handleDelete(u.id)}
-                        className="text-error"
-                      >
-                        Excluir
-                      </button>
                     </td>
                   </tr>
                 ))}

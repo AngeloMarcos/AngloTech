@@ -17,15 +17,6 @@ export class User {
   @Column({ nullable: true })
   name?: string;
 
-  @Column({ nullable: true })
-  address?: string;
-
-  @Column({ nullable: true })
-  gender?: string;
-
-  @Column({ nullable: true })
-  phone?: string;
-
   @OneToMany(() => Course, (course) => course.instructor)
   courses?: Course[];
 }

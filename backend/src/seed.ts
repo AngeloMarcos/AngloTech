@@ -1,4 +1,3 @@
-import "dotenv/config";
 import "reflect-metadata";
 import { AppDataSource } from "./data-source";
 import { User } from "./entities/user.entity";
@@ -11,44 +10,24 @@ async function seed() {
   const adminHash = await bcrypt.hash("admin", 10);
   const demoUsers = [
     {
-      name: "Administrador 1",
-      email: "admin1@anglotech.com",
+      name: "Administrador",
+      email: "admin@anglotech.com",
       password: adminHash,
-      address: "Rua A, 123",
-      gender: "M",
-      phone: "1111-1111",
     },
     {
-      name: "Administrador 2",
-      email: "admin2@anglotech.com",
-      password: adminHash,
-      address: "Rua B, 123",
-      gender: "F",
-      phone: "2222-2222",
+      name: "Alice Dev",
+      email: "alice@anglotech.com",
+      password: await bcrypt.hash("senha123", 10),
     },
     {
-      name: "Administrador 3",
-      email: "admin3@anglotech.com",
-      password: adminHash,
-      address: "Rua C, 123",
-      gender: "M",
-      phone: "3333-3333",
+      name: "Bob Coder",
+      email: "bob@anglotech.com",
+      password: await bcrypt.hash("senha123", 10),
     },
     {
-      name: "Administrador 4",
-      email: "admin4@anglotech.com",
-      password: adminHash,
-      address: "Rua D, 123",
-      gender: "F",
-      phone: "4444-4444",
-    },
-    {
-      name: "Administrador 5",
-      email: "admin5@anglotech.com",
-      password: adminHash,
-      address: "Rua E, 123",
-      gender: "M",
-      phone: "5555-5555",
+      name: "Carol Ops",
+      email: "carol@anglotech.com",
+      password: await bcrypt.hash("senha123", 10),
     },
   ];
 
