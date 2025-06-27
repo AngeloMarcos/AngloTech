@@ -35,12 +35,12 @@ export default function Dashboard() {
     { id: 3, title: 'Projeto Final',       status: 'em andamento' },
   ];
   const ebooks = [
-    { id: 1, title: 'Guia React Avançado',   url: '/ebooks/react-avancado.pdf' },
-    { id: 2, title: 'TypeScript Essencial',  url: '/ebooks/typescript.pdf' },
+    { id: 1, title: 'Guia React Avançado',  coverUrl: '/ebooks/react-avancado.png' },
+    { id: 2, title: 'TypeScript Essencial', coverUrl: '/ebooks/typescript.png' },
   ];
   const notifications = [
-    { id: 1, message: 'Nova aula disponível: Next.js Auth', date: '20/05/2025' },
-    { id: 2, message: 'Quiz corrigido com sucesso!',           date: '18/05/2025' },
+    { id: 1, message: 'Nova aula disponível: Next.js Auth', timestamp: '20/05/2025' },
+    { id: 2, message: 'Quiz corrigido com sucesso!',           timestamp: '18/05/2025' },
   ];
 
   return (
@@ -75,7 +75,7 @@ export default function Dashboard() {
             </section>
 
             {/* ====== Header do Dashboard ====== */}
-            <DashboardHeader userEmail="guest@anglotech.com" />
+            <DashboardHeader />
 
             {/* ====== Cards de Resumo ====== */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

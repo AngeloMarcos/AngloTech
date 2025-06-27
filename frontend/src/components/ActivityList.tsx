@@ -3,8 +3,7 @@ import Link from 'next/link';
 type Activity = {
   id: number;
   title: string;
-  course: string;
-  deadline: string;
+  status: string;
 };
 
 type ActivityListProps = {
@@ -23,10 +22,9 @@ export default function ActivityList({ activities }: ActivityListProps) {
           <li key={act.id} className="flex justify-between items-center">
             <div>
               <p className="text-white">{act.title}</p>
-              <p className="text-gray-400 text-sm">{act.course}</p>
+              <p className="text-gray-400 text-sm">{act.status}</p>
             </div>
             <div>
-              <p className="text-gray-400 text-sm">{act.deadline}</p>
               <Link href={`/activities/${act.id}`} className="text-primary hover:underline">
                 Ir
               </Link>
