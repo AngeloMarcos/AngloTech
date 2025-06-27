@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { AppDataSource } from './data-source';
-import { User } from '../backend/src/entities/user.entity';
+import { User } from './src/entities/user.entity';
 import * as bcrypt from 'bcrypt';
 
 async function seed() {
