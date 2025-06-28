@@ -6,7 +6,8 @@
     "verify:codex": "node verifyCodex.js",
     "dev:backend": "npm run dev --prefix backend",
     "dev:frontend": "npm run dev --prefix frontend",
-    "seed": "npm run seed --prefix backend"
+    "seed": "npm run seed --prefix backend",
+    "merge-all": "./merge-all.sh"
   },
   "devDependencies": {
     "eslint": "^9.30.0",
