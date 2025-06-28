@@ -1,0 +1,16 @@
+{
+  "name": "AngloTech",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "verify:codex": "node verifyCodex.js",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "seed": "npm run seed --prefix backend"
+  },
+  "devDependencies": {
+    "eslint": "^9.30.0",
+    "node-fetch": "^3.3.2",
+    "typescript": "^5.8.3"
+  }
+}
